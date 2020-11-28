@@ -6,6 +6,36 @@ import ibm_db, ibm_db_dbi
 import pandas as pd
 import re
 
+# Dsn Variables
+dsn_uid = 'wwp98306'
+dsn_pwd = 'xzcjjcq3b-v47bzn'
+dsn_hostname = 'dashdb-txn-sbox-yp-dal09-10.services.dal.bluemix.net'
+dsn_driver = '{IBM DB2 ODBC DRIVER}'
+dsn_database = 'BLUDB'
+dsn_port = '50000'
+dsn_protocol = 'TCPIP'
+
+# Dsn string
+dsn = (
+        "DRIVER={0};"
+        "DATABASE={1};"
+        "HOSTNAME={2};"
+        "PORT={3};"
+        "PROTOCOL={4};"
+        "UID={5};"
+        "PWD={6};").format(dsn_driver, dsn_database, dsn_hostname, dsn_port, dsn_protocol, dsn_uid, dsn_pwd)
+
+# Trying to connect
+try: 
+	conn = ibm_db.connect(dsn, "", "")
+	print('\n' * 12,"Connected to the database!".center(76))
+	sleep(1)
+except: 
+	print('\n' * 11, "Unable to connect!".center(76))
+	print("Check your connection or try again later!".center(76))
+	sleep(2)
+	sys.exit()
+
 def clear():
     # for windows 
     if name == 'nt': 
@@ -191,37 +221,6 @@ def delete_user(user):
 	ibm_db.execute(delete_stmt)
 	return True
 
-
-# Dsn Variables
-dsn_hostname = 'dashdb-txn-sbox-yp-dal09-10.services.dal.bluemix.net'
-dsn_uid = 'wwp98306'
-dsn_pwd = 'xzcjjcq3b-v47bzn'
-dsn_driver = '{IBM DB2 ODBC DRIVER}'
-dsn_database = 'BLUDB'
-dsn_port = '50000'
-dsn_protocol = 'TCPIP'
-
-# Dsn string
-dsn = (
-        "DRIVER={0};"
-        "DATABASE={1};"
-        "HOSTNAME={2};"
-        "PORT={3};"
-        "PROTOCOL={4};"
-        "UID={5};"
-        "PWD={6};").format(dsn_driver, dsn_database, dsn_hostname, dsn_port, dsn_protocol, dsn_uid, dsn_pwd)
-
-try: 
-	conn = ibm_db.connect(dsn, "", "")
-	print('\n' * 12,"Connected to the database!".center(76))
-	sleep(1)
-except: 
-	print('\n' * 11, "Unable to connect!".center(76))
-	print("Check your connection or try again later!".center(76))
-	sleep(10)
-	sys.exit()
-
-
 menu = '''
 	[ 1 ] - Login
   	[ 2 ] - Register a new user
@@ -248,7 +247,13 @@ while True:
 		user_login =     str(input('  User or email:  ')).strip()
 		password_login = str(input('  Password:       ')).strip()
 
+		print_intro('[ 1 ] Login Mode')
+		print('\n  Type a user and a password existent.\n')
+		print(f'  User or email:  {user_login}')
+		print(f'  Password:       {(len(password_login))*"*"}')
+
 		print('\n  Verifying...\n')
+
 		sleep(0.5)
 
 		if login_authenticator(user_login, password_login):
@@ -266,7 +271,14 @@ while True:
 		user_register =     str(input('  User:     ')).strip()
 		password_register = str(input('  Password: ')).strip()
 
+		print_intro('[ 2 ] Register Mode')
+		print('\n  Type a new user, email and a password.\n')
+		print(f'  Email:    {email_register}')
+		print(f'  User:     {user_register}')
+		print(f'  Password: {(len(password_register))*"*"}')
+
 		print('\n  Registering...\n')
+
 		sleep(0.5)
 
 		if register_user(user_register, password_register, email_register):
@@ -287,11 +299,15 @@ while True:
 		user_adm =     str(input('  User (ADM):     ')).strip()
 		password_adm = str(input('  Password (ADM): ')).strip()
 
+		print_intro('[ 3 ] ADM Mode')
+		print('\n  Type the user and the password.\n')
+		print(f'  User (ADM):     {user_adm}')
+		print(f'  Password (ADM): {(len(password_adm))*"*"}')
+		
 		print('\n  Verifying...\n')
-		sleep(0.5)
+		sleep(1)
 
 		#if user_adm == dsn_uid and password_adm == dsn_pwd:
-		clear()
 		system("mode 99, 100")
 		print_intro('[ 3 ] ADM Mode', 49)
 		print_users()
@@ -301,33 +317,35 @@ while True:
 		#	print('\n  '*10, end='')
 
 	if choice == 4:
-		print_intro('[ 4 ] ADM Mode')
+		print_intro('[ 3 ] ADM Mode')
 
 		print('\n  Type the user and the password.\n')
 
-		user_adm =     str(input('  User (ADM):     ')).strip().lower()
-		password_adm = str(input('  Password (ADM): ')).strip().lower()
+		user_adm =     str(input('  User (ADM):     ')).strip()
+		password_adm = str(input('  Password (ADM): ')).strip()
 
-		print("\n  Verifying...\n")
-		sleep(0.5)
+		print_intro('[ 3 ] ADM Mode')
+		print('\n  Type the user and the password.\n')
+		print(f'  User (ADM):     {user_adm}')
+		print(f'  Password (ADM): {(len(password_adm))*"*"}')
+		
+		print('\n  Verifying...\n')
+		sleep(1)
 
 		print_intro('[ 4 ] ADM Mode')
-		print('\n  Type the username you want to delete.\n')
+		print('\n  Type the username you want to delete from the database.\n')
 		user_delete = str(input('  User to delete: '))
 
-		print()
-
 		if delete_user(user_delete):
-			print(f"  Sucess: User '{user_delete}' deleted successfully!")
+			print(f"\n  Sucess: User '{user_delete}' deleted successfully!")
 		else:
-			print(f"  Erro: No user '{user_delete}' registered in our database!")
+			print(f"\n  Erro: No user '{user_delete}' registered in our database!")
 
-		print('\n  '*12, end='')
+		print('\n  '*13, end='')
 
 	if choice == 5:
 		print_credits()
 		ibm_db.close(conn)
 		break
-
 
 	system('pause')
