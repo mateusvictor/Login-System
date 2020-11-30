@@ -26,6 +26,7 @@ dsn = (
         "PWD={6};").format(dsn_driver, dsn_database, dsn_hostname, dsn_port, dsn_protocol, dsn_uid, dsn_pwd)
 
 # Trying to connect
+system("mode 77, 26")
 try: 
 	conn = ibm_db.connect(dsn, "", "")
 	print('\n' * 12,"Connected to the database!".center(76))
@@ -200,7 +201,7 @@ def register_user(user, key, email):
 	return True
 
 def print_users():
-	select_query = "SELECT ID, USERNAME, PASSWORD, EMAIL, LAST_LOGIN FROM USERS"
+	select_query = "SELECT ID, USERNAME, LAST_LOGIN FROM USERS"
 	pandas_conn = ibm_db_dbi.Connection(conn)
 	dataframe = (pd.read_sql(select_query, pandas_conn).to_string()).split('\n')
 	print()
@@ -308,7 +309,7 @@ while True:
 		sleep(1)
 
 		#if user_adm == dsn_uid and password_adm == dsn_pwd:
-		system("mode 99, 100")
+		system("mode 99, 28")
 		print_intro('[ 3 ] ADM Mode', 49)
 		print_users()
 		print('\n  ', end='')
