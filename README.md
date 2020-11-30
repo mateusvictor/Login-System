@@ -17,5 +17,8 @@ The project uses only a table called users, so if you want to create with the sa
 ### Login mode
 <img src="https://github.com/mateusvictor/Login-System/blob/main/screenshots/login_mode.jpg" width="800" height="600">
 
-### ADM mode
+### Register mode
+<img src="https://github.com/mateusvictor/Login-System/blob/main/screenshots/register_mode.jpg" width="800" height="600">
+
+### ADM mode - rint users
 <img src="https://github.com/mateusvictor/Login-System/blob/main/screenshots/adm_mode.jpg" width="825" height="525">

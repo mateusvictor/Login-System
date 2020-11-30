@@ -283,7 +283,7 @@ while True:
 		sleep(0.5)
 
 		if register_user(user_register, password_register, email_register):
-				print(f"  Success: User '{user_register}' successfully registered!\n\n\n")
+				print(f"  Success: User '{user_register}' successfully registered!\n\n\n\n")
 		else:
 			print(f"  Erro: Invalid or in use credentials")
 			print(f"  User and password must have between 5 and 100 characters.")
