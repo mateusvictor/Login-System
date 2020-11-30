@@ -7,4 +7,3 @@ After that, you will be able to get your credentials and change the lines 10 and
 
 ## Creating a table 
 The project only uses one table called users, so if you want to create with same columns and data types, run the <a href="github.com/mateusvictor/Login-System/blob/main/create_table.sql">create_table.sql</a> file in the console of your database.
-
