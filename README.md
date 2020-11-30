@@ -18,4 +18,4 @@ The project uses only a table called users, so if you want to create with the sa
 <img src="https://github.com/mateusvictor/Login-System/blob/main/screenshots/login_mode.jpg" width="800" height="600">
 
 ### ADM mode
-<img src="https://github.com/mateusvictor/Login-System/blob/main/screenshots/adm_mode.jpg" width="700" height="1100">
+<img src="https://github.com/mateusvictor/Login-System/blob/main/screenshots/adm_mode.jpg" width="11000" height="700">
