@@ -12,7 +12,7 @@ The project uses only a table called users, so if you want to create with the sa
 ## Program screenshots
 
 ### Menu
-![alt text](https://github.com/mateusvictor/Login-System/blob/main/screenshots/menu.jpg =300x500 "Menu")
+<img src="https://github.com/mateusvictor/Login-System/blob/main/screenshots/menu.jpg" width="444" height="343">
 
 ### Login Mode
 
