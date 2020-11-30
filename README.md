@@ -1,5 +1,4 @@
 # Login System
-
 Login / registration system that records user information such as username, email, password and last login to an SQL database (IBM Db2) in the cloud.
 
 The objective of this simple project is to understand how to create queries against a table in SQL language and how to use an API (ibm_db) in Python for database manipulation.
