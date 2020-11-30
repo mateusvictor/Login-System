@@ -109,7 +109,7 @@ def new_id():
 	max_id_query = "SELECT MAX(ID) FROM USERS"
 	max_id_stmt = ibm_db.exec_immediate(conn, max_id_query)
 
-	# Select only the 4 last characters from the max id ignoring the zeros 
+	# Select only the 4 last characters from the max id  
 	max_id = str(ibm_db.fetch_both(max_id_stmt)[0])
 	max_id = str(int(max_id[7:]))
 
@@ -257,7 +257,7 @@ while True:
 		sleep(0.5)
 
 		if login_authenticator(user_login, password_login):
-			print('  Success: Congratulations! You are in our database!')
+			print('  Success: Congratulations! You are registered in our database!')
 		else:
 			print('  Erro: User or password invalid! Try again or register a new user!')
 		print('\n  '*10, end='')
