@@ -9,12 +9,10 @@ First, you must create an account in the IBM cloud and choose the IBM Db2 servic
 ### Creating a table 
 The project uses only a table called users, so if you want to create with the same columns and data types, run <a href = "https://github.com/mateusvictor/Login-System/blob/main/create_table. sql ">create_table.sql</a> file in the database console.
 
-## Program images
+## Program screenshots
 
-### Program menu 
-haha
-![alt text](https://github.com/mateusvictor/Login-System/blob/main/screenshots/menu.jpg "Menu")
+### Menu
+![alt text](https://github.com/mateusvictor/Login-System/blob/main/screenshots/menu.jpg =300x500 "Menu")
 
-oi
-oi
+### Login Mode
 
