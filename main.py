@@ -7,8 +7,8 @@ import pandas as pd
 import re
 
 # Dsn Variables
-dsn_uid = 'wwp98306'
-dsn_pwd = 'xzcjjcq3b-v47bzn'
+dsn_uid = 'YOUR_USER_ID'
+dsn_pwd = 'YOUR_PASSWORD'
 dsn_hostname = 'dashdb-txn-sbox-yp-dal09-10.services.dal.bluemix.net'
 dsn_driver = '{IBM DB2 ODBC DRIVER}'
 dsn_database = 'BLUDB'
@@ -308,14 +308,14 @@ while True:
 		print('\n  Verifying...\n')
 		sleep(1)
 
-		#if user_adm == dsn_uid and password_adm == dsn_pwd:
-		system("mode 99, 28")
-		print_intro('[ 3 ] ADM Mode', 49)
-		print_users()
-		print('\n  ', end='')
-		#else:
-		#	print('  Access Denied!')
-		#	print('\n  '*10, end='')
+		if user_adm == dsn_uid and password_adm == dsn_pwd:
+			system("mode 99, 99")
+			print_intro('[ 3 ] ADM Mode', 49)
+			print_users()
+			print('\n  ', end='')
+		else:
+			print('  Access Denied!')
+			print('\n  '*10, end='')
 
 	if choice == 4:
 		print_intro('[ 3 ] ADM Mode')
@@ -333,16 +333,20 @@ while True:
 		print('\n  Verifying...\n')
 		sleep(1)
 
-		print_intro('[ 4 ] ADM Mode')
-		print('\n  Type the username you want to delete from the database.\n')
-		user_delete = str(input('  User to delete: '))
+		if user_adm == dsn_uid and password_adm == dsn_pwd:
+			print_intro('[ 4 ] ADM Mode')
+			print('\n  Type the username you want to delete from the database.\n')
+			user_delete = str(input('  User to delete: '))
 
-		if delete_user(user_delete):
-			print(f"\n  Sucess: User '{user_delete}' deleted successfully!")
+			if delete_user(user_delete):
+				print(f"\n  Sucess: User '{user_delete}' deleted successfully!")
+			else:
+				print(f"\n  Erro: No user '{user_delete}' registered in our database!")
+
+			print('\n  '*13, end='')
 		else:
-			print(f"\n  Erro: No user '{user_delete}' registered in our database!")
-
-		print('\n  '*13, end='')
+			print('  Access Denied!')
+			print('\n  '*10, end='')
 
 	if choice == 5:
 		print_credits()
