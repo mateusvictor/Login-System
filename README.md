@@ -20,5 +20,7 @@ The project uses only a table called users, so if you want to create with the sa
 ### Register mode
 <img src="https://github.com/mateusvictor/Login-System/blob/main/screenshots/register_mode.jpg" width="800" height="600">
 
-### ADM mode - rint users
+### ADM mode - print users
 <img src="https://github.com/mateusvictor/Login-System/blob/main/screenshots/adm_mode.jpg" width="825" height="525">
+
+Copyright (c) 2020 Mateus Victor
