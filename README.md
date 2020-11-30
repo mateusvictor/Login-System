@@ -12,7 +12,10 @@ The project uses only a table called users, so if you want to create with the sa
 ## Program screenshots
 
 ### Menu
-<img src="https://github.com/mateusvictor/Login-System/blob/main/screenshots/menu.jpg" width="700" height="500">
+<img src="https://github.com/mateusvictor/Login-System/blob/main/screenshots/menu.jpg" width="800" height="600">
 
-### Login Mode
+### Login mode
 <img src="https://github.com/mateusvictor/Login-System/blob/main/screenshots/login_mode.jpg" width="800" height="600">
+
+### ADM mode
+<img src="https://github.com/mateusvictor/Login-System/blob/main/screenshots/adm_mode.jpg" width="800" height="600">
